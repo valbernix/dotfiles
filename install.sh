@@ -30,10 +30,15 @@ set_up_ssh() {
   [[ -d "$agent_dir" ]] && create_symlink "$PWD/ssh/agent.toml" "$agent_dir"
 }
 
+set_up_git() {
+  create_symlink "$PWD/git/.gitconfig"
+}
+
 # +++ MAIN +++
 
 set_up_bash
 set_up_vim
 set_up_tmux
 set_up_ssh
+set_up_git
 

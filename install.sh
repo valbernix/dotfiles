@@ -20,8 +20,13 @@ set_up_vim() {
   create_symlink "$PWD/vim/.vimrc"
 }
 
+set_up_tmux() {
+  create_symlink "$PWD/tmux/.tmux.conf"
+}
+
 # +++ MAIN +++
 
 set_up_bash
 set_up_vim
+set_up_tmux
 

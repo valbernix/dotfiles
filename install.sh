@@ -24,9 +24,16 @@ set_up_tmux() {
   create_symlink "$PWD/tmux/.tmux.conf"
 }
 
+set_up_ssh() {
+  create_symlink "$PWD/ssh/config" "$HOME/.ssh"
+  local agent_dir="$HOME/.config/1Password/ssh"
+  [[ -d "$agent_dir" ]] && create_symlink "$PWD/ssh/agent.toml" "$agent_dir"
+}
+
 # +++ MAIN +++
 
 set_up_bash
 set_up_vim
 set_up_tmux
+set_up_ssh
 

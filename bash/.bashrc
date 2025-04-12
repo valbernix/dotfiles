@@ -103,6 +103,8 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 [[ -f ~/.bash_aliases ]] && \. ~/.bash_aliases
 
+[[ -f ~/.bash_functions ]] && \. ~/.bash_functions
+
 [[ -f ~/.bash_variables ]] && \. ~/.bash_variables
 
 # enable programmable completion features (you don't need to enable

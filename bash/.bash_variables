@@ -6,4 +6,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 export SSH_AUTH_SOCK="$HOME/.1password/agent.sock"
 # SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
+# TEXLIVE
+export TEXLIVE="/usr/local/texlive/2024/bin/x86_64-linux"
 

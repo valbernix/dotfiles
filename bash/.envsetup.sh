@@ -21,3 +21,7 @@ if command -v java >/dev/null 2>&1; then
   export JAVA_HOME=$(readlink -f $(which java) | sed 's|/bin.*||')
 fi
 
+# TEXLIVE
+
+[[ -d "$TEXLIVE" ]] && export PATH="$TEXLIVE:$PATH"
+

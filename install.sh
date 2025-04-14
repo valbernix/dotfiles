@@ -36,6 +36,11 @@ set_up_git() {
   create_symlink "$PWD/git/.gitconfig"
 }
 
+set_up_vscode() {
+  local dst="$HOME/.config/Code/User"
+  [[ -d "$dst" ]] && create_symlink "$PWD/vscode/settings.json" "$dst"
+}
+
 set_up_terminal() {
   if command -v gnome-terminal >/dev/null 2>&1; then
     set_up_gnome_terminal && echo "GNOME Terminal updated"
@@ -53,5 +58,7 @@ set_up_vim
 set_up_tmux
 set_up_ssh
 set_up_git
+set_up_vscode
+
 set_up_terminal
 

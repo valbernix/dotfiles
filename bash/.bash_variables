@@ -11,6 +11,12 @@ export TEXLIVE="/usr/local/texlive/2025/bin/x86_64-linux"
 # ANDROID
 export ANDROID_HOME="/home/workspace/Sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
+# RENAULT
+export PLATFORM="/home/workspace/platforms/myf5/android"
+export RENAULT="$PLATFORM/vendor/renault"
+export RAS="$RENAULT/prebuilts/ras"
+export PREBUILTS="$HOME/Lab/prebuilts/apps/renault"
+export EVE="$HOME/Lab/eve_releases/staging"
 
 # MISC
 export Z="$HOME/Lab/z"

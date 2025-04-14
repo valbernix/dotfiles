@@ -36,6 +36,16 @@ set_up_git() {
   create_symlink "$PWD/git/.gitconfig"
 }
 
+set_up_terminal() {
+  if command -v gnome-terminal >/dev/null 2>&1; then
+    set_up_gnome_terminal && echo "GNOME Terminal updated"
+  fi
+}
+
+set_up_gnome_terminal() {
+  dconf load "/org/gnome/terminal/" < "$PWD/gnome-terminal/settings.dconf"
+}
+
 # +++ MAIN +++
 
 set_up_bash
@@ -43,4 +53,5 @@ set_up_vim
 set_up_tmux
 set_up_ssh
 set_up_git
+set_up_terminal
 

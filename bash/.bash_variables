@@ -12,3 +12,5 @@ export TEXLIVE="/usr/local/texlive/2024/bin/x86_64-linux"
 export ANDROID_HOME="/home/workspace/Sdk"
 export ANDROID_SDK_ROOT="$ANDROID_HOME"
 
+# MISC
+export Z="$HOME/Lab/z"

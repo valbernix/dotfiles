@@ -102,6 +102,9 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 [[ -f ~/.bash_functions ]] && \. ~/.bash_functions
 
+# <https://github.com/rupa/z>
+[[ -d "$Z" ]] && \. "$Z/z.sh"
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -114,3 +117,4 @@ if ! shopt -oq posix; then
 fi
 
 [[ -s "$HOME/.envsetup.sh" ]] && \. "$HOME/.envsetup.sh"
+

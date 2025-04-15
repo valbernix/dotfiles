@@ -41,14 +41,18 @@ set_up_vscode() {
   [[ -d "$dst" ]] && create_symlink "$PWD/vscode/settings.json" "$dst"
 }
 
-set_up_terminal() {
+set_up_gnome() {
+  echo -e "\n Updating GNOME"
   if command -v gnome-terminal >/dev/null 2>&1; then
-    set_up_gnome_terminal && echo "GNOME Terminal updated"
+    set_up_gnome_terminal
   fi
 }
 
 set_up_gnome_terminal() {
-  dconf load "/org/gnome/terminal/" < "$PWD/gnome-terminal/settings.dconf"
+  dconf load "/org/gnome/terminal/" < "$PWD/gnome/terminal.dconf"
+  if [[ $? -eq 0 ]]; then
+    echo -e "   - \e[1mTerminal\e[0m updated"
+  fi
 }
 
 # +++ MAIN +++
@@ -60,5 +64,9 @@ set_up_ssh
 set_up_git
 set_up_vscode
 
-set_up_terminal
+if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME" ]]; then
+  set_up_gnome
+fi
+
+echo -e "\n ✅ Done !"
 

@@ -12,7 +12,7 @@
   "editor.rulers": [
     80
   ],
-  "workbench.colorTheme": "Default Dark+",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
   "editor.cursorStyle": "line",
   "editor.cursorBlinking": "smooth",
   "editor.renderWhitespace": "boundary",
@@ -40,5 +40,5 @@
   "window.zoomLevel": 0.7,
   "workbench.startupEditor": "none",
   "editor.tabCompletion": "on",
-  "editor.quickSuggestionsDelay": 50,
+  "editor.quickSuggestionsDelay": 50
 }

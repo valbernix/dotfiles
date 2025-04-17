@@ -25,7 +25,7 @@ syntax on
 " --- Colors ---
 
 " Deep blue background for visual mode
-highlight Visual ctermbg=17 guibg=#000087
+highlight Visual ctermbg=17 ctermfg=white
 " Cyan for string literals
 highlight String ctermfg=Cyan guifg=Cyan
 " Green for comments

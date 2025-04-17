@@ -68,6 +68,11 @@ call plug#end()
 " Java
 autocmd FileType java setlocal foldmethod=syntax foldlevel=1
 
+" --- Format ---
+
+" Disable auto-comment
+autocmd FileType * setlocal formatoptions-=cro
+
 " --- Goyo ---
 
 " Dimensions

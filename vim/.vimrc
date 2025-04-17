@@ -134,6 +134,7 @@ nnoremap <Leader>table :TableModeToggle<CR>
 
 " Git
 nnoremap <Leader>st :Git st<CR>
+nnoremap <Leader>gr :Git gr<CR>
 nnoremap <Leader>br :Git br<CR>
 nnoremap <Leader>df :Git diff<CR>
 

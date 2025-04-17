@@ -11,6 +11,7 @@
   cp = cherry-pick
   br = branch
   st = status
+  gr = log --oneline --graph
   cm = commit -s
   amd = commit --amend --no-edit
 [diff]

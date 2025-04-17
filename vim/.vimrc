@@ -11,6 +11,8 @@ set shiftwidth=2
 set tabstop=2
 " Use space chars instead of tabs
 set expandtab
+" Mouse support, useful for scrollable overlays
+set mouse=a
 
 
 " ============================ "
@@ -30,6 +32,11 @@ highlight Visual ctermbg=17 ctermfg=white
 highlight String ctermfg=Cyan guifg=Cyan
 " Green for comments
 highlight Comment ctermfg=green
+" Dark gray background for popup menu
+highlight Pmenu ctermbg=237 ctermfg=white
+" Deep blue background for the selected
+" item in the popup menu
+highlight PmenuSel ctermbg=17 ctermfg=white
 
 
 " ============================= "
@@ -56,6 +63,8 @@ Plug 'lervag/vimtex'
 Plug 'plasticboy/vim-markdown'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
+" Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
@@ -72,6 +81,19 @@ autocmd FileType java setlocal foldmethod=syntax foldlevel=1
 
 " Disable auto-comment
 autocmd FileType * setlocal formatoptions-=cro
+
+" Completion
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-tsserver',
+  \ 'coc-eslint',
+  \ 'coc-prettier',
+  \ 'coc-python',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-css',
+  \ 'coc-java',
+  \]
 
 " --- Goyo ---
 
@@ -117,4 +139,19 @@ nnoremap <Leader>df :Git diff<CR>
 
 " Goyo
 nnoremap <C-g> :Goyo<CR>
+
+" Completion
+"" Use <Tab> to pick item
+inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
+
+" --- Jump-to ---
+
+" Go to definition
+nmap <silent> gd <Plug>(coc-definition)
+" Go to type definition
+nmap <silent> gy <Plug>(coc-type-definition)
+" Go to implementation
+nmap <silent> gi <Plug>(coc-implementation)
+" Go to references
+nmap <silent> gr <Plug>(coc-references)
 

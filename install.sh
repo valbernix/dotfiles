@@ -51,7 +51,7 @@ set_up_gnome() {
 set_up_gnome_terminal() {
   dconf load "/org/gnome/terminal/" < "$PWD/gnome/terminal.dconf"
   if [[ $? -eq 0 ]]; then
-    echo -e "   - \e[1mTerminal\e[0m updated"
+    echo "    - $(print_em Terminal) updated"
   fi
 }
 
@@ -68,5 +68,5 @@ if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME" ]]; then
   set_up_gnome
 fi
 
-echo -e "\n ✅ Done !"
+echo -e "\n $(print_s "Done !")"
 

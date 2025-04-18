@@ -132,6 +132,7 @@ nnoremap <C-d> yyp
 " Navigation
 nnoremap <C-n> :GFiles<CR>
 nnoremap <C-p> :Buffers<CR>
+nnoremap <Leader>n :Vexplore<CR>
 
 " Tables
 nnoremap <Leader>table :TableModeToggle<CR>
@@ -159,4 +160,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 " Go to references
 nmap <silent> gr <Plug>(coc-references)
+
+" Resize current buffer
+nnoremap <Leader><Up> :resize +5<CR>
+nnoremap <Leader><Down> :resize -5<CR>
+nnoremap <Leader><Left> :vertical resize -5<CR>
+nnoremap <Leader><Right> :vertical resize +5<CR>
 

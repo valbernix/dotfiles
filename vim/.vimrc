@@ -1,3 +1,4 @@
+source ~/.vim/functions.vim
 
 " ============================ "
 "           BEHAVIOR           "
@@ -11,8 +12,8 @@ set shiftwidth=2
 set tabstop=2
 " Use space chars instead of tabs
 set expandtab
-" Mouse support, useful for scrollable overlays
-set mouse=a
+" Disable mouse (toggle with <Leader> + m)
+set mouse=
 
 
 " ============================ "
@@ -121,6 +122,9 @@ map <SPACE> <leader>
 
 " Reload
 nnoremap <Leader>r :source $MYVIMRC<CR>
+
+" Toggle mouse
+nnoremap <leader>m :call ToggleMouse()<CR>
 
 " Duplicate line
 nnoremap <C-d> yyp

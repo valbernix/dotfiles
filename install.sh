@@ -20,6 +20,8 @@ set_up_bash() {
 
 set_up_vim() {
   create_symlink "$PWD/vim/.vimrc"
+  mkdir -p "$HOME/.vim"
+  create_symlink "$PWD/vim/functions.vim" "$HOME/.vim"
 }
 
 set_up_tmux() {

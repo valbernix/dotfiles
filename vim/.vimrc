@@ -83,7 +83,8 @@ autocmd FileType java setlocal foldmethod=syntax foldlevel=1
 " Disable auto-comment
 autocmd FileType * setlocal formatoptions-=cro
 
-" Completion
+" --- Completion ---
+
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
@@ -95,6 +96,11 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-java',
   \]
+
+" --- AutoPairs ---
+
+" Toggle
+let g:AutoPairsShortcutToggle = '<C-a>'
 
 " --- Goyo ---
 

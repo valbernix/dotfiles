@@ -173,3 +173,6 @@ nnoremap <Leader><Down> :resize -5<CR>
 nnoremap <Leader><Left> :vertical resize -5<CR>
 nnoremap <Leader><Right> :vertical resize +5<CR>
 
+" Append
+inoremap <S-Tab> <C-o>A
+

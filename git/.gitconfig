@@ -18,8 +18,18 @@
   tool = meld
 [difftool]
   prompt = false
+[difftool "meld"]
+  path = C:\\Program Files\\Meld\\Meld.exe
+[merge]
+  tool = meld
+[mergetool]
+  prompt = false
+[mergetool "meld"]
+  path = C:\\Program Files\\Meld\\Meld.exe
 [core]
   editor = vim
+  autocrlf = false
+  sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
 [credential]
   helper = store
 [color]
@@ -27,7 +37,7 @@
 [gpg]
   format = ssh
 [gpg "ssh"]
-  program = /opt/1Password/op-ssh-sign
+  program = C:\\Users\\Shadow\\AppData\\Local\\1Password\\app\\8\\op-ssh-sign.exe
 [commit]
   gpgsign = true
 

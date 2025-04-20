@@ -98,10 +98,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 [[ -f ~/.bash_variables ]] && \. ~/.bash_variables
 
-[[ -f ~/.bash_aliases ]] && \. ~/.bash_aliases
-
-[[ -f ~/.bash_functions ]] && \. ~/.bash_functions
-
 # <https://github.com/rupa/z>
 [[ -d "$Z" ]] && \. "$Z/z.sh"
 

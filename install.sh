@@ -11,8 +11,6 @@ create_symlink() {
 
 set_up_bash() {
   create_symlink "$PWD/bash/.bashrc"
-  create_symlink "$PWD/bash/.bash_aliases"
-  create_symlink "$PWD/bash/.bash_functions"
   create_symlink "$PWD/bash/.bash_variables"
   create_symlink "$PWD/bash/.envsetup.sh"
   source "$HOME/.bashrc"
@@ -20,27 +18,21 @@ set_up_bash() {
 
 set_up_vim() {
   create_symlink "$PWD/vim/.vimrc"
-  mkdir -p "$HOME/.vim"
-  create_symlink "$PWD/vim/functions.vim" "$HOME/.vim"
 }
 
 set_up_tmux() {
   create_symlink "$PWD/tmux/.tmux.conf"
 }
 
-set_up_ssh() {
-  create_symlink "$PWD/ssh/config" "$HOME/.ssh"
-  local agent_dir="$HOME/.config/1Password/ssh"
-  [[ -d "$agent_dir" ]] && create_symlink "$PWD/ssh/agent.toml" "$agent_dir"
-}
-
 set_up_git() {
-  create_symlink "$PWD/git/.gitconfig"
-}
+  local src="$PWD/git/.gitconfig"
+  local dst="$USERPROFILE"
 
-set_up_vscode() {
-  local dst="$HOME/.config/Code/User"
-  [[ -d "$dst" ]] && create_symlink "$PWD/vscode/settings.json" "$dst"
+  # Git on Windows won't be able to access '.gitconfig' located in WSL.
+  # The file must be placed on the Windows host, not within WSL.
+  cp -f "$src" "$dst"
+
+  create_symlink "$dst/.gitconfig"
 }
 
 # +++ MAIN +++
@@ -48,9 +40,7 @@ set_up_vscode() {
 set_up_bash
 set_up_vim
 set_up_tmux
-set_up_ssh
 set_up_git
-set_up_vscode
 
-echo -e "\n $(print_s "Done !")"
+echo -e "\n Done !"
 

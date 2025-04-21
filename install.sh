@@ -35,12 +35,22 @@ set_up_git() {
   create_symlink "$dst/.gitconfig"
 }
 
+set_up_terminal() {
+  local src="$PWD/terminal/settings.json"
+  local dst="$USERPROFILE/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState"
+
+  cp -f "$src" "$dst"
+
+  echo -e "\n > Windows Terminal updated"
+}
+
 # +++ MAIN +++
 
 set_up_bash
 set_up_vim
 set_up_tmux
 set_up_git
+set_up_terminal
 
 echo -e "\n Done !"
 

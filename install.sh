@@ -31,7 +31,9 @@ set_up_tmux() {
 set_up_ssh() {
   create_symlink "$PWD/ssh/config" "$HOME/.ssh"
   local agent_dir="$HOME/.config/1Password/ssh"
-  [[ -d "$agent_dir" ]] && create_symlink "$PWD/ssh/agent.toml" "$agent_dir"
+  if [[ -d "$agent_dir" ]]; then
+    create_symlink "$PWD/ssh/agent.toml" "$agent_dir"
+  fi
 }
 
 set_up_git() {
@@ -40,7 +42,9 @@ set_up_git() {
 
 set_up_vscode() {
   local dst="$HOME/.config/Code/User"
-  [[ -d "$dst" ]] && create_symlink "$PWD/vscode/settings.json" "$dst"
+  if [[ -d "$dst" ]]; then
+    create_symlink "$PWD/vscode/settings.json" "$dst"
+  fi
 }
 
 set_up_gnome() {

@@ -62,6 +62,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'lervag/vimtex'
 " Markdown
 Plug 'plasticboy/vim-markdown'
+Plug 'mzlogin/vim-markdown-toc'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 " Completion
@@ -115,9 +116,10 @@ let g:goyo_margin_bottom = 3
 let g:vim_markdown_frontmatter = 1
 " Conceal markdown syntax
 let g:vim_markdown_conceal = 2
-let g:vim_markdown_conceal_code_blocks = 1
+let g:vim_markdown_conceal_code_blocks = 0
 autocmd FileType markdown setlocal conceallevel=2
-
+" Max level of headings to be included in the toc
+let g:vmt_max_level = 3
 
 " ============================= "
 "            MAPPING            "

@@ -3,7 +3,7 @@ function kill_emu() {
   pkill -9 qemu-system-x86_64 || true
 }
 
-function sdkls() {
+function sdk_ls() {
   local candidate=${1:-java}
   local versions="$(sdk list $candidate | grep installed)"
   if [[ -z "$versions" ]]; then
@@ -11,6 +11,16 @@ function sdkls() {
     return 1
   fi
   echo -e "SDK versions for '$(print_em $candidate)':\n\n$versions"
+}
+
+# --- FS ---
+
+function get_hash() {
+  sha1sum $1 | cut -d " " -f1
+}
+
+function get_size() {
+  stat -c %s $1
 }
 
 # --- Print ---

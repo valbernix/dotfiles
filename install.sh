@@ -29,10 +29,16 @@ set_up_tmux() {
 }
 
 set_up_ssh() {
-  create_symlink "$PWD/ssh/config" "$HOME/.ssh"
-  local agent_dir="$HOME/.config/1Password/ssh"
-  if [[ -d "$agent_dir" ]]; then
-    create_symlink "$PWD/ssh/agent.toml" "$agent_dir"
+  local dst="$HOME/.ssh"
+  mkdir -p "$dst"
+  create_symlink "$PWD/ssh/config" "$dst"
+  set_up_ssh_agent
+}
+
+set_up_ssh_agent() {
+  local dst="$HOME/.config/1Password/ssh"
+  if [[ -d "$dst" ]]; then
+    create_symlink "$PWD/ssh/agent.toml" "$dst"
   fi
 }
 

@@ -15,12 +15,23 @@ function sdk_ls() {
 
 # --- FS ---
 
-function get_hash() {
+function fhash() {
   sha1sum $1 | cut -d " " -f1
 }
 
-function get_size() {
-  stat -c %s $1
+function fsize() {
+  if [[ -d "$1" ]]; then
+    du -sb "$1" | cut -f1
+  elif [[ -f "$1" || -L "$1" ]]; then
+    stat -Lc %s "$1"
+  else
+    print_e "Unsupported file type"
+    return 1
+  fi
+}
+
+function fsize_hr() {
+  echo $(fsize "$1" | numfmt --to=iec)
 }
 
 # --- Print ---

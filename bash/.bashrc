@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export BASH_DIR="$HOME/.bashrc.d"
+export BASH_SOURCES="$BASH_DIR/sources.txt"
+
+# Shell options
+shopt -s globstar nullglob dotglob
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -96,15 +102,6 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-[[ -f ~/.bash_variables ]] && \. ~/.bash_variables
-
-[[ -f ~/.bash_aliases ]] && \. ~/.bash_aliases
-
-[[ -f ~/.bash_functions ]] && \. ~/.bash_functions
-
-# <https://github.com/rupa/z>
-[[ -d "$Z" ]] && \. "$Z/z.sh"
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -116,5 +113,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[[ -s "$HOME/.envsetup.sh" ]] && \. "$HOME/.envsetup.sh"
+# Include all (non-empty) files from ~/.bashrc.d
+if [[ -d "$BASH_DIR" ]]; then
+  rm -f "$BASH_SOURCES"
+  for f in "$BASH_DIR"/**/*; do
+    if [[ (-f "$f" || -L "$f") && ! -d "$f" && -s "$f" ]]; then
+      source "$f"
+      echo "$(date '+%F %T') - $f" >> "$BASH_SOURCES"
+    fi
+  done
+fi
 
+# <https://github.com/rupa/z>
+[[ -d "$Z" ]] && \. "$Z/z.sh"
+
+[[ -s "$HOME/.envsetup.sh" ]] && \. "$HOME/.envsetup.sh"

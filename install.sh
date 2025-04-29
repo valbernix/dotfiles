@@ -10,10 +10,12 @@ create_symlink() {
 }
 
 set_up_bash() {
+  local dst="$HOME/.bashrc.d"
+  mkdir -p "$dst"
   create_symlink "$PWD/bash/.bashrc"
-  create_symlink "$PWD/bash/.bash_aliases"
-  create_symlink "$PWD/bash/.bash_functions"
-  create_symlink "$PWD/bash/.bash_variables"
+  create_symlink "$PWD/bash/.bash_aliases" "$dst"
+  create_symlink "$PWD/bash/functions" "$dst"
+  create_symlink "$PWD/bash/.bash_variables" "$dst"
   create_symlink "$PWD/bash/.envsetup.sh"
   source "$HOME/.bashrc"
 }
@@ -63,7 +65,7 @@ set_up_gnome() {
 set_up_gnome_terminal() {
   dconf load "/org/gnome/terminal/" < "$PWD/gnome/terminal.dconf"
   if [[ $? -eq 0 ]]; then
-    echo "    - $(print_em Terminal) updated"
+    echo "    - $(print_bf Terminal) updated"
   fi
 }
 

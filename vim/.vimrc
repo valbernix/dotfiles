@@ -69,7 +69,7 @@ call plug#end()
 
 
 " ============================== "
-"            SETTINGS            " 
+"            SETTINGS            "
 " ============================== "
 
 " --- Folding ---
@@ -170,4 +170,22 @@ nnoremap <Leader><Right> :vertical resize +5<CR>
 
 " Append
 inoremap <S-Tab> <C-o>A
+
+" --- Surround ---
+
+" Parentheses
+nmap <Leader>( ysiwb
+nmap <Leader>s( yssb
+" Curly braces
+nmap <Leader>{ ysiwB
+nmap <Leader>s{ yssB
+" Square brackets
+nmap <Leader>[ ysiw[
+nmap <Leader>s[ yss[
+" Double quotes
+nmap <Leader>" ysiw"
+nmap <Leader>s" yss"
+" Single quotes
+nmap <Leader>' ysiw'
+nmap <Leader>s' yss'
 

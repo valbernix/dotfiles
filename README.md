@@ -19,6 +19,7 @@
     * [Navigation](#navigation)
     * [Reload](#reload-1)
     * [Resize](#resize)
+    * [Surround](#surround)
     * [Tables](#tables)
 * [Plugins](#plugins)
     * [vim-markdown-toc](#vim-markdown-toc)
@@ -59,7 +60,7 @@
 ### Yank
 
 | Shortcut                  | Mode     | Action                                     |
-| --------                  | ------   | ------------------------------------------ |
+| ------------------------- | -------- | ------------------------------------------ |
 | `y`                       | `COPY`   | Copy the selected text in system clipboard |
 | `CTRL + a`&nbsp;&nbsp;`v` | `NORMAL` | Start selection inside copy mode           |
 
@@ -135,6 +136,21 @@
 | `SPACE + Right` | `NORMAL` | Increase **vertical** size by 5   |
 | `SPACE + Up`    | `NORMAL` | Increase **horizontal** size by 5 |
 | `SPACE + Down`  | `NORMAL` | Decrease **horizontal** size by 5 |
+
+### Surround
+
+| Shortcut        | Mode     | Action                                           |
+| --------------- | -------- | ------------------------------------------------ |
+| `SPACE + (`     | `NORMAL` | Wrap the current word in **parentheses**         |
+| `SPACE + s + (` | `NORMAL` | Surround the whole line with **parentheses**     |
+| `SPACE + {`     | `NORMAL` | Wrap the current word in **curly braces**        |
+| `SPACE + s + {` | `NORMAL` | Surround the whole line with **curly braces**    |
+| `SPACE + [`     | `NORMAL` | Wrap the current word in **square brackets**     |
+| `SPACE + s + {` | `NORMAL` | Surround the whole line with **square brackets** |
+| `SPACE + "`     | `NORMAL` | Wrap the current word in **double quotes**       |
+| `SPACE + s + "` | `NORMAL` | Surround the whole line with **double quotes**   |
+| `SPACE + '`     | `NORMAL` | Wrap the current word in **single quotes**       |
+| `SPACE + s + '` | `NORMAL` | Surround the whole line with **single quotes**   |
 
 ### Tables
 

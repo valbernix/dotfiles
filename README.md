@@ -34,34 +34,35 @@
 
 | Shortcut                  | Action |
 | ------------------------- | ------ |
-| `CTRL + A`&nbsp;&nbsp;`m` | Toggle |
+| `CTRL + a`&nbsp;&nbsp;`m` | Toggle |
 
 ### Reload
 
 | Shortcut                  | Action                             |
 | ------------------------- | ---------------------------------- |
-| `CTRL + A`&nbsp;&nbsp;`r` | Apply settings from `~/.tmux.conf` |
+| `CTRL + a`&nbsp;&nbsp;`r` | Apply settings from `~/.tmux.conf` |
 
 ### Sessions
 
 | Shortcut                  | Action                                     |
 | ------------------------- | ------------------------------------------ |
-| `CTRL + A`&nbsp;&nbsp;`l` | Switch to the **next** running session     |
-| `CTRL + A`&nbsp;&nbsp;`h` | Switch to the **previous** running session |
-| `CTRL + A`&nbsp;&nbsp;`s` | Switch between running sessions            |
+| `CTRL + a`&nbsp;&nbsp;`l` | Switch to the **next** running session     |
+| `CTRL + a`&nbsp;&nbsp;`h` | Switch to the **previous** running session |
+| `CTRL + a`&nbsp;&nbsp;`s` | Switch between running sessions            |
 
 ### Splits
 
 | Shortcut                   | Action                    |
 | -------------------------- | ------------------------- |
-| `CTRL + A`&nbsp;&nbsp;`\|` | Split window horizontally |
-| `CTRL + A`&nbsp;&nbsp;`-`  | Split window vertically   |
+| `CTRL + a`&nbsp;&nbsp;`\|` | Split window horizontally |
+| `CTRL + a`&nbsp;&nbsp;`-`  | Split window vertically   |
 
 ### Yank
 
-| Shortcut | Mode   | Action                                     |
-| -------- | ------ | ------------------------------------------ |
-| `y`      | `COPY` | Copy the selected text in system clipboard |
+| Shortcut                  | Mode     | Action                                     |
+| --------                  | ------   | ------------------------------------------ |
+| `y`                       | `COPY`   | Copy the selected text in system clipboard |
+| `CTRL + a`&nbsp;&nbsp;`v` | `NORMAL` | Start selection inside copy mode           |
 
 ## Vim
 

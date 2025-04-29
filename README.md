@@ -17,7 +17,6 @@
     * [Goyo](#goyo)
     * [Mouse](#mouse-1)
     * [Navigation](#navigation)
-    * [Pairing](#pairing)
     * [Reload](#reload-1)
     * [Resize](#resize)
     * [Tables](#tables)
@@ -121,12 +120,6 @@
 | `CTRL + n`  | `NORMAL` | Search Git-tracked files using Fuzzy |
 | `CTRL + p`  | `NORMAL` | Switch between open buffers          |
 | `SPACE + n` | `NORMAL` | Open file explorer                   |
-
-### Pairing
-
-| Shortcut   | Mode  | Action           |
-| ---------- | ----- | ---------------- |
-| `CTRL + a` | `ALL` | Toggle AutoPairs |
 
 ### Reload
 

@@ -45,8 +45,6 @@ highlight PmenuSel ctermbg=17 ctermfg=white
 " ============================= "
 
 call plug#begin('~/.vim/plugged')
-" Closing chars
-Plug 'jiangmiao/auto-pairs'
 " Distraction-free mode
 Plug 'junegunn/goyo.vim'
 " Tables
@@ -97,11 +95,6 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-java',
   \]
-
-" --- AutoPairs ---
-
-" Toggle
-let g:AutoPairsShortcutToggle = '<C-a>'
 
 " --- Goyo ---
 

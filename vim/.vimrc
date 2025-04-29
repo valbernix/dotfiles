@@ -1,8 +1,11 @@
 source ~/.vim/functions.vim
 
-" ============================ "
-"           BEHAVIOR           "
-" ============================ "
+" Prerequisites
+" Vim 9.1.016 or higher
+
+" =============================================== "
+"                 EDITOR SETTINGS                 "
+" =============================================== "
 
 " Indentation
 filetype plugin indent on
@@ -16,17 +19,16 @@ set expandtab
 set mouse=
 
 
-" ============================ "
-"             LOOK             "
-" ============================ "
+" =============================================== "
+"                 VISUAL SETTINGS                 "
+" =============================================== "
 
 " Line numbers
 set number
 " Syntax highlighting
 syntax on
 
-" --- Colors ---
-
+" COLORSCHEME
 " Deep blue background for visual mode
 highlight Visual ctermbg=17 ctermfg=white
 " Cyan for string literals
@@ -40,9 +42,9 @@ highlight Pmenu ctermbg=237 ctermfg=white
 highlight PmenuSel ctermbg=17 ctermfg=white
 
 
-" ============================= "
-"            PLUGINS            "
-" ============================= "
+" =============================================== "
+"                     PLUGINS                     "
+" =============================================== "
 
 call plug#begin('~/.vim/plugged')
 " Distraction-free mode
@@ -68,22 +70,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 
-" ============================== "
-"            SETTINGS            "
-" ============================== "
+" =============================================== "
+"              PLUGINS CONFIGURATION              "
+" =============================================== "
 
-" --- Folding ---
-
-" Java
-autocmd FileType java setlocal foldmethod=syntax foldlevel=1
-
-" --- Format ---
-
-" Disable auto-comment
-autocmd FileType * setlocal formatoptions-=cro
-
-" --- Completion ---
-
+" coc.nvim
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
@@ -96,36 +87,45 @@ let g:coc_global_extensions = [
   \ 'coc-java',
   \]
 
-" --- Goyo ---
-
-" Dimensions
+" goyo.vim
 let g:goyo_width = 120
 let g:goyo_margin_top = 3
 let g:goyo_margin_bottom = 3
 
-" --- Markdown ---
-
-" Frontmatter
+" vim-markdown
 let g:vim_markdown_frontmatter = 1
-" Conceal markdown syntax
 let g:vim_markdown_conceal = 2
 let g:vim_markdown_conceal_code_blocks = 0
-autocmd FileType markdown setlocal conceallevel=2
-" Max level of headings to be included in the toc
-let g:vmt_max_level = 3
 
-" ============================= "
-"            MAPPING            "
-" ============================= "
+" vim-markdown-toc
+let g:vmt_max_level = 3 " Max level of headings to be included in the toc"
+
+
+" ================================================ "
+"                  FILETYPE RULES                  "
+" ================================================ "
+
+" Any
+autocmd FileType * setlocal formatoptions-=cro
+
+" Java
+autocmd FileType java setlocal foldmethod=syntax foldlevel=1
+
+" Markdown
+autocmd FileType markdown setlocal conceallevel=2
+
+
+" ================================================ "
+"                     MAPPINGS                     "
+" ================================================ "
+
+" --- General ---
 
 " Leader
 map <SPACE> <leader>
 
-" Reload
-nnoremap <Leader>r :source $MYVIMRC<CR>
-
-" Toggle mouse
-nnoremap <leader>m :call ToggleMouse()<CR>
+" Append
+inoremap <S-Tab> <C-o>A
 
 " Duplicate line
 nnoremap <C-d> yyp
@@ -135,24 +135,24 @@ nnoremap <C-n> :GFiles<CR>
 nnoremap <C-p> :Buffers<CR>
 nnoremap <Leader>n :Vexplore<CR>
 
-" Tables
-nmap <Esc>t :TableModeToggle<CR>
+" Reload
+nnoremap <Leader>r :source $MYVIMRC<CR>
 
-" Git
-nnoremap <Leader>st :Git st<CR>
-nnoremap <Leader>gr :Git gr<CR>
-nnoremap <Leader>br :Git br<CR>
-nnoremap <Leader>df :Git diff<CR>
+" Resize current buffer
+nnoremap <Leader><Up> :resize +5<CR>
+nnoremap <Leader><Down> :resize -5<CR>
+nnoremap <Leader><Left> :vertical resize -5<CR>
+nnoremap <Leader><Right> :vertical resize +5<CR>
 
-" Goyo
-nnoremap <C-g> :Goyo<CR>
+" Toggle mouse
+nnoremap <leader>m :call ToggleMouse()<CR>
 
-" Completion
-"" Use <Tab> to pick item
+
+" --- Plugins ---
+
+" coc.nvim
+" Autocomplete
 inoremap <silent><expr> <Tab> pumvisible() ? coc#_select_confirm() : "\<Tab>"
-
-" --- Jump-to ---
-
 " Go to definition
 nmap <silent> gd <Plug>(coc-definition)
 " Go to type definition
@@ -162,17 +162,16 @@ nmap <silent> gi <Plug>(coc-implementation)
 " Go to references
 nmap <silent> gr <Plug>(coc-references)
 
-" Resize current buffer
-nnoremap <Leader><Up> :resize +5<CR>
-nnoremap <Leader><Down> :resize -5<CR>
-nnoremap <Leader><Left> :vertical resize -5<CR>
-nnoremap <Leader><Right> :vertical resize +5<CR>
+" goyo.vim
+nnoremap <C-g> :Goyo<CR>
 
-" Append
-inoremap <S-Tab> <C-o>A
+" vim-fugitive
+nnoremap <Leader>st :Git st<CR>
+nnoremap <Leader>gr :Git gr<CR>
+nnoremap <Leader>br :Git br<CR>
+nnoremap <Leader>df :Git diff<CR>
 
-" --- Surround ---
-
+" vim-surround
 " Parentheses
 nmap <Leader>( ysiwb
 nmap <Leader>s( yssb
@@ -189,3 +188,5 @@ nmap <Leader>s" yss"
 nmap <Leader>' ysiw'
 nmap <Leader>s' yss'
 
+" vim-table-mode
+nmap <Esc>t :TableModeToggle<CR>

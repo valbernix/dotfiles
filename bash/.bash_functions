@@ -13,6 +13,37 @@ function sdk_ls() {
   echo -e "SDK versions for '$(print_em $candidate)':\n\n$versions"
 }
 
+# Remove leading and trailing whitespace from a string
+#
+# Usage:
+# - trim <string>
+function trim(){
+  printf "%s" "$1" | sed 's/^[[:space:]]*//; s/[[:space:]]*$//'
+}
+
+# Copy content to the clipboard
+#
+# Usage:
+# - xcp <string>
+# - <string> | xcp
+function xcp() {
+  local content
+
+  if [[ -n "$1" ]]; then
+    content=$(trim "$1")
+  elif [[ ! -t 0 ]]; then
+    content=$(cat)
+    content=$(trim "$content")
+  fi
+
+  if [[ -z "$content" ]]; then
+    print_e "Nothing to copy"
+    return 1
+  fi
+
+  printf "%s" "$content" | xclip -selection clipboard
+}
+
 # --- FS ---
 
 function fhash() {

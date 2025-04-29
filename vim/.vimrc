@@ -143,7 +143,7 @@ nnoremap <C-p> :Buffers<CR>
 nnoremap <Leader>n :Vexplore<CR>
 
 " Tables
-nnoremap <Leader>table :TableModeToggle<CR>
+nmap <Esc>t :TableModeToggle<CR>
 
 " Git
 nnoremap <Leader>st :Git st<CR>

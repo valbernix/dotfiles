@@ -145,9 +145,9 @@
 
 ### Tables
 
-| Shortcut        | Mode     | Action            |
-| --------------- | -------- | ----------------- |
-| `SPACE + table` | `NORMAL` | Toggle table mode |
+| Shortcut               | Mode     | Action            |
+| ---------------        | -------- | ----------------- |
+| `Esc + t` or `Alt + t` | `NORMAL` | Toggle table mode |
 
 ## Plugins
 
